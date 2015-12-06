@@ -1,0 +1,16 @@
+.#{$icomoon-prefix}-pencil { 
+  &:before {
+    content: $icon-pencil;
+  }
+}
+.#{$icomoon-prefix}-search { 
+  &:before {
+    content: $icon-search;
+  }
+}
+.#{$icomoon-prefix}-trashcan { 
+  &:before {
+    content: $icon-trashcan;
+  }
+}
+

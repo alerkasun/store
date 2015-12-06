@@ -1,0 +1,30 @@
+<h1>Your Cart</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Amount</th>
+      <th>Price</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% total_price = 0 %>
+    <% session[:cart].each do |id, quantity| %>
+      <% book = Book.find(id) %>
+      <tr>
+        <td><%= book.title %></td>
+        <td>
+          <input id="quantity" class="quantity" type="number" min="1" max="10" name="quantity" value="<%= quantity %>">
+        </td>
+        <td><%= book.price * quantity %></td>
+        <td><%= button_to 'Remove from Cart', remove_from_cart_books_path(book_id: book.id) %></td>
+      </tr>
+      <% total_price += book.price * quantity %>
+    <% end %>
+  </tbody>
+</table>
+
+<p>Total price: <%= total_price %> </p>
