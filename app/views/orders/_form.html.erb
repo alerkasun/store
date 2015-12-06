@@ -1,3 +1,37 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th colspan="1"></th>
+      <th>Title</th>
+      <th>Amount</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% total_price = 0 %>
+    <% session[:cart].each do |id, quantity| %>
+      <% book = Book.find(id) %>
+      <tr>
+        <td></td>
+        <td><%= book.title %></td>
+        <td>
+          <input id="quantity" class="quantity" type="number" min="1" max="10" name="quantity" value="<%= quantity %>">
+        </td>
+        <td><%= book.price * quantity %></td>
+      </tr>
+      <% total_price += book.price * quantity %>
+    <% end %>
+    <tr>
+      <td>Total price:</td>
+      <td></td>
+      <td></td>
+      <td><%= total_price %></td>
+    </tr>
+  </tbody>
+</table>
+
+
 <%= form_for(@order) do |f| %>
   <% if @order.errors.any? %>
     <div id="error_explanation">
@@ -18,10 +52,6 @@
   <div class="field">
     <%= f.label :email %><br>
     <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
   </div>
   <div class="field">
     <%= f.label :phone %><br>

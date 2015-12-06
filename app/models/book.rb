@@ -1,2 +1,3 @@
 class Book < ActiveRecord::Base
+  has_many :ordered_books, dependent: :destroy
 end
