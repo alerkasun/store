@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :genres
   resources :ordered_books
   resources :orders
   resources :books
