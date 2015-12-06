@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Book Storages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Book</th>
+      <th>Storage</th>
+      <th>Amount</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @book_storages.each do |book_storage| %>
+      <tr>
+        <td><%= book_storage.book_id %></td>
+        <td><%= book_storage.storage_id %></td>
+        <td><%= book_storage.amount %></td>
+        <td><%= link_to raw(icon(:search)), book_storage, title: 'Show' %></td>
+        <td><%= link_to raw(icon(:pencil)), edit_book_storage_path(book_storage), title: 'Edit' %></td>
+        <td><%= link_to raw(icon(:trashcan)), book_storage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Book storage', new_book_storage_path %>

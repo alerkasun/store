@@ -1,13 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Page count:</strong>
-  <%= @book.page_count %>
-</p>
-
-<p>
-  <strong>Publication year:</strong>
-  <%= @book.publication_year %>
+  <strong>Cover:</strong>
+  <%= image_tag @book.cover.url(:small) %>
 </p>
 
 <p>
@@ -16,18 +11,48 @@
 </p>
 
 <p>
-  <strong>Author:</strong>
-  <%= @book.author %>
+  <strong>Authors:</strong>
+  
+  <ul>
+    <% @book.authors.each do |author| %>
+      <li><%= "#{author.last_name} #{author.first_name}" %></li>
+    <% end %>
+  </ul>
+</p>
+
+<p>
+  <strong>Genre:</strong>
+  <%= @book.genre.try(:name) %>
+</p>
+
+<p>
+  <strong>Publisher:</strong>
+  <%= @book.publisher.try(:name) %>
+</p>
+
+<p>
+  <strong>Publication year:</strong>
+  <%= @book.publication_year %>
+</p>
+
+<p>
+  <strong>Page count:</strong>
+  <%= @book.page_count %>
+</p>
+
+<p>
+  <strong>Storages:</strong>
+  
+  <ul>
+    <% @book.book_storages.each do |bs| %>
+      <li><%= "#{bs.storage.name}: #{bs.amount}" %></li>
+    <% end %>
+  </ul>
 </p>
 
 <p>
   <strong>Price:</strong>
   <%= @book.price %>
-</p>
-
-<p>
-  <strong>Cover:</strong>
-  <%= @book.cover %>
 </p>
 
 <%= link_to 'Edit', edit_book_path(@book) %> |

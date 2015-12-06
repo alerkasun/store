@@ -14,6 +14,8 @@ gem 'icomoon_as_well'
 gem 'quiet_assets', group: :development
 gem 'bootstrap-sass', '~> 3.3.4'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'carrierwave'
+gem 'mini_magick'
 
 group :development, :test do
   gem 'byebug'

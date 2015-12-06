@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :publishers
+  resources :book_storages
+  resources :storages
   resources :authors
   resources :genres
   resources :ordered_books

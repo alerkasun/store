@@ -1,3 +1,40 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.home_header {
+ height: 50px;  
+ overflow: hidden;
+ position: relative;
+}
+.home_header h1 {
+ position: absolute;
+ width: 100%;
+ height: 100%;
+ margin: 0;
+ line-height: 50px;
+ text-align: left;
+ -moz-animation: home_header 5s linear infinite alternate;
+ -webkit-animation: home_header 5s linear infinite alternate;
+ animation: home_header 5s linear infinite alternate;
+}
+@-moz-keyframes home_header {
+ 0%   { -moz-transform: translateX(70%); }
+ 100% { -moz-transform: translateX(0%); }
+}
+@-webkit-keyframes home_header {
+ 0%   { -webkit-transform: translateX(70%); }
+ 100% { -webkit-transform: translateX(0%); }
+}
+@keyframes home_header {
+ 0%   { 
+ -moz-transform: translateX(70%);
+ -webkit-transform: translateX(70%);
+ transform: translateX(70%);
+ }
+ 100% { 
+ -moz-transform: translateX(0%);
+ -webkit-transform: translateX(0%);
+ transform: translateX(0%); 
+ }
+}

@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<div class="col-md-4">
+  <h2><%= "#{author.first_name} #{author.last_name}" %></h2>
+     <%= image_tag author.author_photo.url(:small), :class => "img-thumbnail", :style => "float :left; margin-right: 20px" %>
+  <p>
+    <strong>Books:</strong>
+      <% author.books.each do |book| %>
+        <%= "#{book.title}" %> <br>
+      <% end %>
+  </p>
+
+  <p>
+    <%= link_to 'View details', author, :class => "btn btn-default" %>
+  </p>
+</div>

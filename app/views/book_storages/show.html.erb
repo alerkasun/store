@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Book:</strong>
+  <%= @book_storage.book_id %>
+</p>
+
+<p>
+  <strong>Storage:</strong>
+  <%= @book_storage.storage_id %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @book_storage.amount %>
+</p>
+
+<%= link_to 'Edit', edit_book_storage_path(@book_storage) %> |
+<%= link_to 'Back', book_storages_path %>

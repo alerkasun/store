@@ -1,1 +1,17 @@
-<h1>Pages#home</h1>
+<div class="container">
+  <div class="home_header">
+    <h1>Resent books</h1>
+  </div>
+  
+  <div class="row">
+    <%= render @recent_books %>
+  </div>
+
+  <div class="home_header">
+    <h1>Special price</h1>
+  </div>
+
+  <div class="row">
+    <%= render "books/special_price", books: @special_prices %>
+  </div>
+</div>

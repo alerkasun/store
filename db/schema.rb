@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151206182736) do
+ActiveRecord::Schema.define(version: 20151206200811) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,11 +22,20 @@ ActiveRecord::Schema.define(version: 20151206182736) do
     t.date     "date_of_birth"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.string   "author_photo"
   end
 
   create_table "authors_books", force: :cascade do |t|
     t.integer "author_id"
     t.integer "book_id"
+  end
+
+  create_table "book_storages", force: :cascade do |t|
+    t.integer  "book_id"
+    t.integer  "storage_id"
+    t.integer  "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "books", force: :cascade do |t|
@@ -36,9 +45,11 @@ ActiveRecord::Schema.define(version: 20151206182736) do
     t.decimal  "price",            precision: 8, scale: 2
     t.string   "cover"
     t.string   "title"
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.datetime "created_at",                                             null: false
+    t.datetime "updated_at",                                             null: false
     t.integer  "genre_id"
+    t.integer  "publisher_id"
+    t.decimal  "special_price",    precision: 8, scale: 2, default: 0.0
   end
 
   create_table "genres", force: :cascade do |t|
@@ -63,6 +74,21 @@ ActiveRecord::Schema.define(version: 20151206182736) do
     t.integer  "phone"
     t.string   "address"
     t.string   "pay_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "publishers", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "storages", force: :cascade do |t|
+    t.string   "name"
+    t.string   "location"
+    t.integer  "area"
+    t.integer  "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
