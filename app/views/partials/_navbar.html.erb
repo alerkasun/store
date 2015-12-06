@@ -9,8 +9,7 @@
         <li><%= link_to "Cart", watch_out_cart_books_path %></li>
        <li>
         <%= search_form_for @q, url: search_books_path, :class => "navbar-form" do |f| %>
-          <%= f.text_field :title_cont, :class=>"form-control" %>
-          <%= f.submit "Search",  :class => "btn btn-default" %>
+            <%= f.text_field :title_cont, :class=>"form-control", :placeholder => "Search for book title" %>
         <% end %>
       </li>
     </div>

@@ -18,6 +18,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'kaminari'
 gem 'ransack'
+gem 'devise'
 
 group :development, :test do
   gem 'byebug'
