@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   resources :genres
   resources :ordered_books
   resources :orders
-  resources :books
   root 'pages#home'
+
   get 'pages/home'
   get 'pages/about'
   get 'pages/contact'
@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       post 'add_to_cart'
       get 'watch_out_cart'
       post 'remove_from_cart'
+      get 'search'
     end
   end
 end

@@ -1,0 +1,62 @@
+<p id="notice"><%= notice %></p>
+
+<%= search_form_for @q, url: search_books_path, :class => "form-inline" do |f| %>
+  <div class="field">
+    <%= f.label 'Title' %>
+    <%= f.text_field :title_cont %>
+  </div>
+  <div class="field">
+    <%= f.label 'Genre' %>
+    <%= f.collection_select :genre_id_eq, Genre.all, :id, :name, include_blank: true %>
+  </div>
+  <div class="field">
+    <%= f.label 'Page count between' %>
+    <%= f.text_field :page_count_gteq %>
+    <%= f.label 'and' %>
+    <%= f.text_field :page_count_lteq %>
+  </div>
+  <div class="field">
+    <%= f.label 'Price between' %>
+    <%= f.text_field :price_gteq %>
+    <%= f.label 'and' %>
+    <%= f.text_field :price_lteq %>
+  </div>
+  <div class="field">
+    <%= f.label 'Authors' %>
+    <%= f.collection_select :authors_id_in_any, Author.all, :id, :first_name, { include_blank: true }, { :multiple=> true } %>
+  </div>
+  <div class="field">
+    <%= f.submit "Search" %>
+  </div>
+<% end %>
+
+<h1>Listing Books</h1>
+<%= paginate @books %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Cover</th>
+      <th><%= sort_link(@q, :title, 'Sort by title') %></th>
+      <th>Publication year</th>
+      <th>Page count</th>
+      <th><%= sort_link(@q, :price, 'Sort by price') %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @books.each do |book| %>
+      <tr>
+        <td><%= book.cover %></td>
+        <td><%= book.title %></td>
+        <td><%= book.publication_year %></td>
+        <td><%= book.page_count %></td>
+        <td><%= book.price %></td>
+        <td><%= button_to 'Add to Cart', add_to_cart_books_path(book_id: book.id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Book', new_book_path %>

@@ -76,6 +76,9 @@ class BooksController < ApplicationController
   def watch_out_cart
   end
 
+  def search
+  end
+
   private
     def set_book
       @book = Book.find(params[:id])

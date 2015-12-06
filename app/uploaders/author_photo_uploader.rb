@@ -18,7 +18,7 @@ class AuthorPhotoUploader < CarrierWave::Uploader::Base
   end
 
   def default_url(*args)
-    ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default_author_photo.png"].compact.join('_'))
+    ActionController::Base.helpers.asset_path([version_name, "default_author_photo.png"].compact.join('_'))
   end
 
   version :small do
