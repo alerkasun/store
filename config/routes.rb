@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :ordered_books
+  resources :orders
   resources :books
   root 'pages#home'
   get 'pages/home'
